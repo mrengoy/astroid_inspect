@@ -3,6 +3,6 @@ Simple program that visualizes an ASI astroid
 
 # How to run
 ```
-python3 run.py
+python run.py
 ```
 you need numpy, flatspin, matplotlib and tkinter
