@@ -69,13 +69,13 @@ root = tk.Tk()
 root.title("Matplotlib Plot with Widgets")
 
 # Create and place interactive widgets
-field_strength_label = tk.Label(root, text="Field Strength:")
+field_strength_label = tk.Label(root, text="Field Strength (T):")
 field_strength_label.pack()
 field_strength_slider = tk.Scale(root, from_=0.0, to=0.10, resolution=0.005, orient="horizontal", length=500)
 field_strength_slider.set(0)
 field_strength_slider.pack()
 
-field_angle_label = tk.Label(root, text="Field Angle:")
+field_angle_label = tk.Label(root, text="Field Angle (radians):")
 field_angle_label.pack()
 field_angle_slider = tk.Scale(root, from_=0, to=2*np.pi, resolution=0.05, orient="horizontal", length=500)
 field_angle_slider.set(1.0)
