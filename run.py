@@ -32,7 +32,7 @@ def update_plot():
     field_angle = field_angle_slider.get()
     new_field = np.array([np.cos(field_angle), np.sin(field_angle)])*field_strength
     model.set_h_ext(new_field)
-    tot_fields = model.total_fields() # Parallel fields, and perpendicular fields for every magnet
+    tot_fields = model.total_fields() * model.threshold[:, np.newaxis] / model.hc # Parallel fields, and perpendicular fields for every magnet
     
     (orange   ,) = np.where((model.spin == 1 ) & (model.angle > 0))
     (green ,) = np.where((model.spin == -1) & (model.angle < 0))
@@ -95,7 +95,7 @@ alpha_item_s.grid(row=2, column=1)
 
 disorder_item = tk.Label(mygrid, text="Disorder")
 disorder_item.grid(row=3, column=0)
-disorder_item_s = tk.Scale(mygrid, from_=0, to=0.1, resolution=0.005, orient="horizontal", length=500)
+disorder_item_s = tk.Scale(mygrid, from_=0, to=0.5, resolution=0.005, orient="horizontal", length=500)
 disorder_item_s.set(0.001)
 disorder_item_s.grid(row=3, column=1)
 
